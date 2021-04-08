@@ -16,6 +16,8 @@ namespace Albums.API.Profiles
                 .ForMember(d => d.Artist, 
                     o=> o.MapFrom(s => 
                         $"{s.Artist.FirstName} {s.Artist.LastName}"));
+
+            CreateMap<AlbumForCreationDTO, Album>();
         }
     }
 }

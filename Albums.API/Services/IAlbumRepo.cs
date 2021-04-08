@@ -14,6 +14,12 @@ namespace Albums.API.Services
 
         Task<IEnumerable<Album>> GetAlbumsAsync();
 
+        Task<IEnumerable<Album>> GetAlbumsAsync(IEnumerable<Guid> AlbumIds);
+
         Task<Album> GetAlbumAsync(Guid id);
+
+        void AddAlbum(Album newAlbum);
+
+        Task<bool> SaveChangesAsync();
     }
 }

@@ -60,4 +60,3 @@ C:\Users\sakbar\source\repos\syed-demo\Albums.API\Albums.API\obj\Debug\net5.0\Al
 C:\Users\sakbar\source\repos\syed-demo\Albums.API\Albums.API\obj\Debug\net5.0\Albums.API.genruntimeconfig.cache
 C:\Users\sakbar\source\repos\syed-demo\Albums.API\Albums.API\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\sakbar\source\repos\syed-demo\Albums.API\Albums.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\sakbar\source\repos\syed-demo\Albums.API\Albums.API\obj\Debug\net5.0\Albums.API.csprojAssemblyReference.cache

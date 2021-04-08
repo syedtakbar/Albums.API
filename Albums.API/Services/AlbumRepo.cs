@@ -20,7 +20,6 @@ namespace Albums.API.Services
 
         public async Task<IEnumerable<Album>> GetAlbumsAsync()
         {
-            //await _context.Database.ExecuteSqlRawAsync("WAITFOR DELAY '00:00:02';");
             return await _context.Albums
                 .Include(a => a.Artist).ToListAsync();
         }
@@ -29,6 +28,12 @@ namespace Albums.API.Services
         {
             return await _context.Albums
                 .Include(a => a.Artist).FirstOrDefaultAsync(b => b.Id == id);
+        }
+
+        public async Task<IEnumerable<Album>> GetAlbumsAsync(IEnumerable<Guid> AlbumIds)
+        {
+            return await _context.Albums.Where(a => AlbumIds.Contains(a.Id))
+                .Include(a => a.Artist).ToListAsync();
         }
 
         public void Dispose()
@@ -51,7 +56,6 @@ namespace Albums.API.Services
 
         public IEnumerable<Album> GetAlbums()
         {
-            //_context.Database.ExecuteSqlRaw("WAITFOR DELAY '00:00:02';");
             return  _context.Albums
                 .Include(a => a.Artist).ToList();
         }
@@ -61,5 +65,19 @@ namespace Albums.API.Services
             return  _context.Albums
                 .Include(a => a.Artist).FirstOrDefault(b => b.Id == id);
         }
+
+        public void  AddAlbum(Album newAlbum)
+        {
+            if (newAlbum == null) throw new ArgumentNullException(nameof(newAlbum));
+
+            _context.Add(newAlbum);
+
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+           return (await _context.SaveChangesAsync() > 0);
+        }
+
     }
 }
